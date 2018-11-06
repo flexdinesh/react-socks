@@ -1,0 +1,90 @@
+{
+  "name": "render-breakpoints",
+  "version": "1.0.0",
+  "description": "React library to render components only on specific viewports",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.babel.js",
+    "build-examples": "webpack --config examples/webpack.config.babel.js --progress",
+    "clean": "rm -rf dist coverage",
+    "coverage": "jest --coverage",
+    "lint": "eslint ./src",
+    "prepublish": "npm run clean && npm run test && npm run build",
+    "start": "webpack-dev-server --config examples/webpack.config.live.babel.js",
+    "test": "npm run lint && npm run coverage"
+  },
+  "jest": {
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text-summary"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "scss"
+    ],
+    "modulePaths": [
+      "./src"
+    ],
+    "setupFiles": [
+      "<rootDir>/config/jest/setup.js"
+    ],
+    "transform": {
+      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+    ]
+  },
+  "dependencies": {
+    "react": "^16.6.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.4",
+    "chai": "^4.1.2",
+    "clean-webpack-plugin": "^0.1.16",
+    "css-loader": "^1.0.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^5.8.0",
+    "eslint-plugin-react": "^7.4.0",
+    "jest-cli": "^23.6.0",
+    "node-sass": "^4.7.2",
+    "prop-types": "^15.6.0",
+    "react-addons-test-utils": "^15.5.1",
+    "react-dom": "^16.6.0",
+    "react-hot-loader": "next",
+    "react-test-renderer": "^16.0.0",
+    "regenerator-runtime": "^0.12.1",
+    "sass-loader": "^7.0.1",
+    "sinon": "^7.1.1",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.9.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "keywords": [
+    "react",
+    "render",
+    "breakpoint",
+    "responsive",
+    "media",
+    "query",
+    "media-queries",
+    "react package",
+    "component",
+    "library"
+  ],
+  "resolutions": {
+    "babel-core": "7.0.0-bridge.0"
+  }
+}
