@@ -19,27 +19,40 @@ class Example extends React.Component {
   render() {
     return (
       <div>
-        <Breakpoint large up>
-          <div style={{ backgroundColor: 'aqua' }}>Hello World! large up</div>
-        </Breakpoint>
-        <Breakpoint medium only>
-          <div style={{ backgroundColor: 'yellow' }}>
-            Hello World! medium only
+        <Breakpoint small down>
+          <div style={{ backgroundColor: '#0074D9' }}>
+            Hello World! small down
           </div>
         </Breakpoint>
         <Breakpoint medium down>
-          <div style={{ backgroundColor: 'pink' }}>
+          <div style={{ backgroundColor: '#F012BE' }}>
             Hello World! medium down
           </div>
         </Breakpoint>
+        <Breakpoint medium only>
+          <div style={{ backgroundColor: '#FFDC00' }}>
+            Hello World! medium only
+          </div>
+        </Breakpoint>
+
         <Breakpoint medium up>
-          <div style={{ backgroundColor: 'silver' }}>
+          <div style={{ backgroundColor: '#2ECC40' }}>
             Hello World! medium up
           </div>
         </Breakpoint>
         <Breakpoint large down>
-          <div style={{ backgroundColor: 'tomato' }}>
+          <div style={{ backgroundColor: '#FF851B' }}>
             Hello World! large down
+          </div>
+        </Breakpoint>
+        <Breakpoint large up>
+          <div style={{ backgroundColor: '#39CCCC' }}>
+            Hello World! large up
+          </div>
+        </Breakpoint>
+        <Breakpoint xlarge only>
+          <div style={{ backgroundColor: '#FF4136' }}>
+            Hello World! xlarge only
           </div>
         </Breakpoint>
       </div>

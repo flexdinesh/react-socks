@@ -2,12 +2,10 @@ export class BreakpointUtil {
   constructor() {
     const defaultBreakpoints = [
       { xsmall: 0 },
-      { small: 376 },
-      { medium: 426 },
-      { large: 769 },
-      { xlarge: 1025 },
-      { xxlarge: 1440 },
-      { xxxlarge: 2560 }
+      { small: 576 },
+      { medium: 768 },
+      { large: 992 },
+      { xlarge: 1200 }
     ];
     this.allBreakpoints = defaultBreakpoints;
   }
@@ -22,7 +20,7 @@ export class BreakpointUtil {
 
     this.allBreakpoints.forEach((obj) => {
       let currentKey = Object.keys(obj)[0];
-      if (obj[currentKey] < width) bpName = currentKey;
+      if (obj[currentKey] <= width) bpName = currentKey;
     });
 
     return bpName;
@@ -84,7 +82,9 @@ export class BreakpointUtil {
   }
 
   getWidthSafely() {
-    return ((document || {}).body || {}).clientWidth || 9999;
+    return window
+      ? Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
+      : 9999;
   }
 }
 
@@ -92,16 +92,26 @@ const B = new BreakpointUtil();
 export default B;
 
 export const setDefaultBreakpoints = (customBreakpoints) => {
-  if (!customBreakpoints || typeof customBreakpoints !== 'object' || !(customBreakpoints instanceof Array)) {
-    throw new Error('setDefaultBreakpoints error: Breakpoints should be an array');
+  if (
+    !customBreakpoints ||
+    typeof customBreakpoints !== 'object' ||
+    !(customBreakpoints instanceof Array)
+  ) {
+    throw new Error(
+      'setDefaultBreakpoints error: Breakpoints should be an array'
+    );
   }
 
   customBreakpoints.forEach((obj) => {
     if (!obj || typeof obj !== 'object') {
-      throw new Error('setDefaultBreakpoints error: Breakpoints should be an array of objects');
+      throw new Error(
+        'setDefaultBreakpoints error: Breakpoints should be an array of objects'
+      );
     }
     if (Object.keys(obj).length !== 1) {
-      throw new Error('setDefaultBreakpoints error: Each breakpoint object should have only one key');
+      throw new Error(
+        'setDefaultBreakpoints error: Each breakpoint object should have only one key'
+      );
     }
   });
 
