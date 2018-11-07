@@ -1,8 +1,7 @@
 # React Socks
 
-[![Build Status](https://travis-ci.org/flexdinesh/react-socks.svg?branch=master)](https://travis-ci.org/flexdinesh/react-socks)
-[![dependencies Status](https://david-dm.org/flexdinesh/react-socks/status.svg)](https://david-dm.org/flexdinesh/react-socks)
 [![npm version](https://badge.fury.io/js/react-socks.svg)](https://www.npmjs.com/package/react-socks)
+[![dependencies Status](https://david-dm.org/flexdinesh/react-socks/status.svg)](https://david-dm.org/flexdinesh/react-socks)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 Wrap your components with **React Socks** to prevent unnecessary render in different viewports.
