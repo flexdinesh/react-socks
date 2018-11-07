@@ -7,7 +7,7 @@
 
 Wrap your components with **React Socks** to prevent unnecessary render in different viewports.
 
-```js
+```jsx
 <Breakpoint small down>
   <MyAwesomeMobileMenu>
     This component will render only in mobile devices
@@ -35,7 +35,7 @@ $ npm install --save react-socks
 
 ## Usage
 
-```js
+```jsx
 import Breakpoint from 'react-socks';
 
 // ...
@@ -73,7 +73,7 @@ You can define your own breakpoints.
 
 **Note: You only need to set default breakpoints once in your app**
 
-```js
+```jsx
 import { setDefaultBreakpoints } from 'react-socks';
 
 setDefaultBreakpoints([
@@ -92,7 +92,7 @@ setDefaultBreakpoints([
 
 - You can use any breakpoint name (Eg. cats, puppies, dinosaurs, etc) and width.
 
-```js
+```jsx
 setDefaultBreakpoints([
   { cats: 0 },
   { dinosaurs: 900 }
@@ -105,7 +105,7 @@ setDefaultBreakpoints([
 
 - If you don't set a default breakpoint, the library will fallback to **Bootstrap 4 default breakpoints** as described below.
 
-```js
+```jsx
 setDefaultBreakpoints([
   { xsmall: 0 }, // all mobile devices
   { small: 576 }, // mobile devices (not sure which one's this big)
@@ -119,7 +119,7 @@ setDefaultBreakpoints([
 
 Import the `Breakpoint` component anywhere in the your code and start using it with your **breakpoint** and **modifier** props.
 
-```js
+```jsx
 // small is breakpoint
 // down is modifier
 <Breakpoint small down>
