@@ -92,11 +92,14 @@ const B = new BreakpointUtil();
 export default B;
 
 export const setDefaultBreakpoints = (customBreakpoints) => {
-  if (!customBreakpoints || !customBreakpoints.length) {
-    throw new Error('setDefaultBreakpoints error: Breakpoints should be an array of objects');
+  if (!customBreakpoints || typeof customBreakpoints !== 'object' || !(customBreakpoints instanceof Array)) {
+    throw new Error('setDefaultBreakpoints error: Breakpoints should be an array');
   }
 
   customBreakpoints.forEach((obj) => {
+    if (!obj || typeof obj !== 'object') {
+      throw new Error('setDefaultBreakpoints error: Breakpoints should be an array of objects');
+    }
     if (Object.keys(obj).length !== 1) {
       throw new Error('setDefaultBreakpoints error: Each breakpoint object should have only one key');
     }
