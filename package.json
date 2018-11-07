@@ -1,6 +1,6 @@
 {
   "name": "react-socks",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha",
   "description": "React library to render components only on specific viewports",
   "main": "./dist/index.js",
   "scripts": {
