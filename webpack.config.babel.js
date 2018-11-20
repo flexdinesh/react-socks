@@ -41,6 +41,11 @@ export default () => ({
     extensions: ['.js', '.jsx', '.scss']
   },
 
+  externals: {
+    react: 'react',
+    reactDOM: 'react-dom'
+  },
+
   plugins: [new CleanWebpackPlugin(['dist/*.*'])],
   optimization: {
     splitChunks: {
