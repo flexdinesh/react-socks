@@ -13,19 +13,18 @@ class Breakpoint extends React.Component {
     this.extractBreakpointAndModifierFromProps = this.extractBreakpointAndModifierFromProps.bind(
       this
     );
+
+    this.handleResize = this.handleResize.bind(
+      this
+    );
   }
 
   componentDidMount() {
-    window.addEventListener('resize', () => {
-      this.setState({
-        width: BreakpointUtil.currentWidth,
-        currentBreakpoint: BreakpointUtil.currentBreakpointName
-      });
-    });
+    window.addEventListener('resize', this.handleResize);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', () => {}, true);
+    window.removeEventListener('resize', this.handleResize);
   }
 
   extractBreakpointAndModifierFromProps(allProps) {
@@ -44,6 +43,13 @@ class Breakpoint extends React.Component {
       breakpoint,
       modifier
     };
+  }
+  
+  handleResize() {
+    this.setState({
+      width: BreakpointUtil.currentWidth,
+      currentBreakpoint: BreakpointUtil.currentBreakpointName
+    });
   }
 
   render() {
