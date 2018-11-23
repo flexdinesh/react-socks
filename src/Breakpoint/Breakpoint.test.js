@@ -1,6 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import Breakpoint from 'index';
+import { shallow, mount } from 'enzyme';
+import { Breakpoint, BreakpointProvider } from 'index';
 import { BreakpointUtil } from './breakpoint-util';
 import sinon from 'sinon';
 
@@ -21,91 +21,111 @@ describe('Breakpoint - small', () => {
   });
 
   it('should render small only', () => {
-    let wrapper = shallow(
-      <Breakpoint small>
-        <span>render only between 576 and 768</span>
-      </Breakpoint>
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint small>
+          <span>render only between 576 and 768</span>
+        </Breakpoint>
+      </BreakpointProvider>
     );
-    expect(wrapper.children()).toHaveLength(1);
+    expect(wrapper.children().children()).toHaveLength(1);
 
-    wrapper = shallow(
-      <Breakpoint small only>
-        <span>render only between 576 and 768</span>
-      </Breakpoint>
+    wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint small only>
+          <span>render only between 576 and 768</span>
+        </Breakpoint>
+      </BreakpointProvider>
     );
-    expect(wrapper.children()).toHaveLength(1);
+    expect(wrapper.children().children()).toHaveLength(1);
   });
 
   it('should render small down', () => {
-    const wrapper = shallow(
-      <Breakpoint small down>
-        <span>render below 768</span>
-      </Breakpoint>
+    const wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint small down>
+          <span>render below 768</span>
+        </Breakpoint>
+      </BreakpointProvider>
     );
-    expect(wrapper.children()).toHaveLength(1);
+    expect(wrapper.children().children()).toHaveLength(1);
   });
 
   it('should render small up', () => {
-    const wrapper = shallow(
-      <Breakpoint small up>
-        <span>render above 576</span>
-      </Breakpoint>
+    const wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint small up>
+          <span>render above 576</span>
+        </Breakpoint>
+      </BreakpointProvider>
     );
-    expect(wrapper.children()).toHaveLength(1);
+    expect(wrapper.children().children()).toHaveLength(1);
   });
 
   it('should not render medium only', () => {
-    let wrapper = shallow(
-      <Breakpoint medium>
-        <span>should not render between 768 and 992</span>
-      </Breakpoint>
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint medium only>
+          <span>should not render between 768 and 992</span>
+        </Breakpoint>
+      </BreakpointProvider>
     );
-    expect(wrapper.children()).toHaveLength(0);
+    expect(wrapper.children().children()).toHaveLength(0);
   });
 
   it('should not render medium up', () => {
-    let wrapper = shallow(
-      <Breakpoint medium up>
-        <span>should not render above 768</span>
-      </Breakpoint>
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint medium up>
+          <span>should not render above 768</span>
+        </Breakpoint>
+      </BreakpointProvider>
     );
-    expect(wrapper.children()).toHaveLength(0);
+    expect(wrapper.children().children()).toHaveLength(0);
   });
 
   it('should render medium down', () => {
-    let wrapper = shallow(
-      <Breakpoint medium down>
-        <span>should render below 992</span>
-      </Breakpoint>
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint medium down>
+          <span>should render below 992</span>
+        </Breakpoint>
+      </BreakpointProvider>
     );
-    expect(wrapper.children()).toHaveLength(1);
+    expect(wrapper.children().children()).toHaveLength(1);
   });
 
   it('should not render large only', () => {
-    let wrapper = shallow(
-      <Breakpoint large only>
-        <span>should not render between 992 and 1200</span>
-      </Breakpoint>
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint large only>
+          <span>should not render between 992 and 1200</span>
+        </Breakpoint>
+      </BreakpointProvider>
     );
-    expect(wrapper.children()).toHaveLength(0);
+    expect(wrapper.children().children()).toHaveLength(0);
   });
 
   it('should not render large up', () => {
-    let wrapper = shallow(
-      <Breakpoint large up>
-        <span>should not render above 992</span>
-      </Breakpoint>
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint large up>
+          <span>should not render above 992</span>
+        </Breakpoint>
+      </BreakpointProvider>
     );
-    expect(wrapper.children()).toHaveLength(0);
+    expect(wrapper.children().children()).toHaveLength(0);
   });
 
   it('should render large down', () => {
-    let wrapper = shallow(
-      <Breakpoint large down>
-        <span>should render below 1200</span>
-      </Breakpoint>
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint large down>
+          <span>should render below 1200</span>
+        </Breakpoint>
+      </BreakpointProvider>
     );
-    expect(wrapper.children()).toHaveLength(1);
+    expect(wrapper.children().children()).toHaveLength(1);
   });
 
   afterEach(() => {
@@ -123,91 +143,111 @@ describe('Breakpoint - medium', () => {
   });
 
   it('should not render small only', () => {
-    let wrapper = shallow(
-      <Breakpoint small>
-        <span>should not render between 576 and 768</span>
-      </Breakpoint>
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint small>
+          <span>should not render between 576 and 768</span>
+        </Breakpoint>
+      </BreakpointProvider>
     );
-    expect(wrapper.children()).toHaveLength(0);
+    expect(wrapper.children().children()).toHaveLength(0);
   });
 
   it('should not render small down', () => {
-    const wrapper = shallow(
-      <Breakpoint small down>
-        <span>should not render below 768</span>
-      </Breakpoint>
+    const wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint small down>
+          <span>should not render below 768</span>
+        </Breakpoint>
+      </BreakpointProvider>
     );
-    expect(wrapper.children()).toHaveLength(0);
+    expect(wrapper.children().children()).toHaveLength(0);
   });
 
   it('should render small up', () => {
-    const wrapper = shallow(
-      <Breakpoint small up>
-        <span>should render above 576</span>
-      </Breakpoint>
+    const wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint small up>
+          <span>should render above 576</span>
+        </Breakpoint>
+      </BreakpointProvider>
     );
-    expect(wrapper.children()).toHaveLength(1);
+    expect(wrapper.children().children()).toHaveLength(1);
   });
 
   it('should render medium only', () => {
-    let wrapper = shallow(
-      <Breakpoint medium>
-        <span>should render between 768 and 992</span>
-      </Breakpoint>
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint medium>
+          <span>should render between 768 and 992</span>
+        </Breakpoint>
+      </BreakpointProvider>
     );
-    expect(wrapper.children()).toHaveLength(1);
+    expect(wrapper.children().children()).toHaveLength(1);
 
-    wrapper = shallow(
-      <Breakpoint medium only>
-        <span>should render between 768 and 992</span>
-      </Breakpoint>
+    wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint medium only>
+          <span>should render between 768 and 992</span>
+        </Breakpoint>
+      </BreakpointProvider>
     );
-    expect(wrapper.children()).toHaveLength(1);
+    expect(wrapper.children().children()).toHaveLength(1);
   });
 
   it('should render medium up', () => {
-    let wrapper = shallow(
-      <Breakpoint medium up>
-        <span>should render above 768</span>
-      </Breakpoint>
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint medium up>
+          <span>should render above 768</span>
+        </Breakpoint>
+      </BreakpointProvider>
     );
-    expect(wrapper.children()).toHaveLength(1);
+    expect(wrapper.children().children()).toHaveLength(1);
   });
 
   it('should render medium down', () => {
-    let wrapper = shallow(
-      <Breakpoint medium down>
-        <span>should render below 992</span>
-      </Breakpoint>
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint medium down>
+          <span>should render below 992</span>
+        </Breakpoint>
+      </BreakpointProvider>
     );
-    expect(wrapper.children()).toHaveLength(1);
+    expect(wrapper.children().children()).toHaveLength(1);
   });
 
   it('should not render large only', () => {
-    let wrapper = shallow(
-      <Breakpoint large only>
-        <span>should not render between 992 and 1200</span>
-      </Breakpoint>
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint large only>
+          <span>should not render between 992 and 1200</span>
+        </Breakpoint>
+      </BreakpointProvider>
     );
-    expect(wrapper.children()).toHaveLength(0);
+    expect(wrapper.children().children()).toHaveLength(0);
   });
 
   it('should not render large up', () => {
-    let wrapper = shallow(
-      <Breakpoint large up>
-        <span>should not render above 992</span>
-      </Breakpoint>
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint large up>
+          <span>should not render above 992</span>
+        </Breakpoint>
+      </BreakpointProvider>
     );
-    expect(wrapper.children()).toHaveLength(0);
+    expect(wrapper.children().children()).toHaveLength(0);
   });
 
   it('should render large down', () => {
-    let wrapper = shallow(
-      <Breakpoint large down>
-        <span>should render below 1200</span>
-      </Breakpoint>
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint large down>
+          <span>should render below 1200</span>
+        </Breakpoint>
+      </BreakpointProvider>
     );
-    expect(wrapper.children()).toHaveLength(1);
+    expect(wrapper.children().children()).toHaveLength(1);
   });
 
   afterEach(() => {
@@ -225,91 +265,111 @@ describe('Breakpoint - large', () => {
   });
 
   it('should not render small only', () => {
-    let wrapper = shallow(
-      <Breakpoint small>
-        <span>should not render between 576 and 768</span>
-      </Breakpoint>
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint small>
+          <span>should not render between 576 and 768</span>
+        </Breakpoint>
+      </BreakpointProvider>
     );
-    expect(wrapper.children()).toHaveLength(0);
+    expect(wrapper.children().children()).toHaveLength(0);
   });
 
   it('should not render small down', () => {
-    const wrapper = shallow(
-      <Breakpoint small down>
-        <span>should not render below 768</span>
-      </Breakpoint>
+    const wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint small down>
+          <span>should not render below 768</span>
+        </Breakpoint>
+      </BreakpointProvider>
     );
-    expect(wrapper.children()).toHaveLength(0);
+    expect(wrapper.children().children()).toHaveLength(0);
   });
 
   it('should render small up', () => {
-    const wrapper = shallow(
-      <Breakpoint small up>
-        <span>should render above 576</span>
-      </Breakpoint>
+    const wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint small up>
+          <span>should render above 576</span>
+        </Breakpoint>
+      </BreakpointProvider>
     );
-    expect(wrapper.children()).toHaveLength(1);
+    expect(wrapper.children().children()).toHaveLength(1);
   });
 
   it('should not render medium only', () => {
-    let wrapper = shallow(
-      <Breakpoint medium>
-        <span>should not render between 768 and 768</span>
-      </Breakpoint>
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint medium>
+          <span>should not render between 768 and 768</span>
+        </Breakpoint>
+      </BreakpointProvider>
     );
-    expect(wrapper.children()).toHaveLength(0);
+    expect(wrapper.children().children()).toHaveLength(0);
   });
 
   it('should render medium up', () => {
-    let wrapper = shallow(
-      <Breakpoint medium up>
-        <span>should render above 768</span>
-      </Breakpoint>
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint medium up>
+          <span>should render above 768</span>
+        </Breakpoint>
+      </BreakpointProvider>
     );
-    expect(wrapper.children()).toHaveLength(1);
+    expect(wrapper.children().children()).toHaveLength(1);
   });
 
   it('should not render medium down', () => {
-    let wrapper = shallow(
-      <Breakpoint medium down>
-        <span>should not render below 768</span>
-      </Breakpoint>
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint medium down>
+          <span>should not render below 768</span>
+        </Breakpoint>
+      </BreakpointProvider>
     );
-    expect(wrapper.children()).toHaveLength(0);
+    expect(wrapper.children().children()).toHaveLength(0);
   });
 
   it('should render large only', () => {
-    let wrapper = shallow(
-      <Breakpoint large only>
-        <span>should render between 992 and 1200</span>
-      </Breakpoint>
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint large only>
+          <span>should render between 992 and 1200</span>
+        </Breakpoint>
+      </BreakpointProvider>
     );
-    expect(wrapper.children()).toHaveLength(1);
+    expect(wrapper.children().children()).toHaveLength(1);
 
-    wrapper = shallow(
-      <Breakpoint large>
-        <span>should render between 992 and 1200</span>
-      </Breakpoint>
+    wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint large>
+          <span>should render between 992 and 1200</span>
+        </Breakpoint>
+      </BreakpointProvider>
     );
-    expect(wrapper.children()).toHaveLength(1);
+    expect(wrapper.children().children()).toHaveLength(1);
   });
 
   it('should render large up', () => {
-    let wrapper = shallow(
-      <Breakpoint large up>
-        <span>should render above 992</span>
-      </Breakpoint>
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint large up>
+          <span>should render above 992</span>
+        </Breakpoint>
+      </BreakpointProvider>
     );
-    expect(wrapper.children()).toHaveLength(1);
+    expect(wrapper.children().children()).toHaveLength(1);
   });
 
   it('should render large down', () => {
-    let wrapper = shallow(
-      <Breakpoint large down>
-        <span>should render below 1200</span>
-      </Breakpoint>
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint large down>
+          <span>should render below 1200</span>
+        </Breakpoint>
+      </BreakpointProvider>
     );
-    expect(wrapper.children()).toHaveLength(1);
+    expect(wrapper.children().children()).toHaveLength(1);
   });
 
   afterEach(() => {

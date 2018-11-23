@@ -14,8 +14,7 @@ export class BreakpointUtil {
     return this.getWidthSafely();
   }
 
-  get currentBreakpointName() {
-    const width = this.getWidthSafely();
+  getBreakpointName(width) {
     let bpName;
 
     this.allBreakpoints.forEach((obj) => {
@@ -63,15 +62,15 @@ export class BreakpointUtil {
     return nextBreakpointWidth;
   }
 
-  shouldRender({ breakpointName, modifier }) {
+  shouldRender({ breakpointName, modifier, currentBreakpointName, currentWidth }) {
     if (modifier === 'only') {
-      if (breakpointName === this.currentBreakpointName) return true;
+      if (breakpointName === currentBreakpointName) return true;
     } else if (modifier === 'up') {
       const breakpointWidth = this.getBreakpointWidth(breakpointName);
-      if (this.currentWidth >= breakpointWidth) return true;
+      if (currentWidth >= breakpointWidth) return true;
     } else if (modifier === 'down') {
       const nextBreakpointWidth = this.getNextBreakpointWidth(breakpointName);
-      if (this.currentWidth < nextBreakpointWidth) return true;
+      if (currentWidth < nextBreakpointWidth) return true;
     }
 
     return false;
