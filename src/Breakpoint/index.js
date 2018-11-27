@@ -1,2 +1,4 @@
 import Breakpoint from './Breakpoint';
-export default Breakpoint;
+import BreakpointProvider from './BreakpointProvider';
+
+export { Breakpoint, BreakpointProvider };
