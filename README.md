@@ -34,10 +34,9 @@ $ npm install --save react-socks
 ```
 
 ## Usage
-Just wrap your top level component with a `<BreakpointProvider >` component and use the `Breakpoint` anywhere you need.
 
 ```jsx
-import { Breakpoint, BreakpointProvider} from 'react-socks';
+import Breakpoint from 'react-socks';
 
 const Example = () => {
   return (
@@ -64,12 +63,6 @@ const Example = () => {
     </div>
   );
 };
-
-const App = () => (
-  <BreakpointProvider> 
-    <Example />
-  </BreakpointProvider> 
-);
 ```
 
 ## API
