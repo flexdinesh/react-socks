@@ -1,0 +1,28 @@
+# Changelog
+
+## To Be Released
+
+### version (undecided)
+
+* what's next
+
+## Released
+
+### 1.0.0 (9 Dec 2018)
+
+* First stable version of **React Socks**.
+* Following changes are made in the first stable based on feedbacks from alpha release
+  * `BreakpointProvider` - context wrapper to prevent width calculation in each `Breakpoint` component
+  * Support SSR
+  * Performance improvements
+
+### 1.0.0-alpha (20 Nov 2018)
+
+* An alpha version of **React Socks** is released to the world =)
+* Following APIs are included in the first alpha
+  * `setDefaultBreakpoints` to define custom breakpoints
+  * `Breakpoint` component with `breakpoint` and `modifier` props.
+    * Three modifiers available
+      * **only** - will render the component only in the specified breakpoint.
+      * **up** - will render the component in the specified breakpoint and all the breakpoints above it (greater than the width).
+      * **down** - will render the component in the specified breakpoint and all the breakpoints below it (less than the width).
