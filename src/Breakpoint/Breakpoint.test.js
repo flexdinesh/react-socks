@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { Breakpoint, BreakpointProvider } from 'index';
+import Breakpoint, { BreakpointProvider } from 'index';
 import { BreakpointUtil } from './breakpoint-util';
 import sinon from 'sinon';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Breakpoint, BreakpointProvider } from '../src/index';
+import Breakpoint, { BreakpointProvider } from '../src/index';
 // import { setDefaultBreakpoints } from '../src/index';
 // setDefaultBreakpoints([
 //   { xs: 0 },
