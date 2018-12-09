@@ -10,11 +10,11 @@
 
 ### 1.0.0 (9 Dec 2018)
 
-* First stable version of **React Socks**.
-* Following changes are made in the first stable based on feedbacks from alpha release
-  * `BreakpointProvider` - context wrapper to prevent width calculation in each `Breakpoint` component
-  * Support SSR
-  * Performance improvements
+* First stable release of **React Socks**.
+* Following changes are included in the first stable release based on feedbacks from alpha release.
+  * `BreakpointProvider` - context wrapper to prevent width calculation in each `Breakpoint` component.
+  * Support SSR.
+  * Performance improvements.
 
 ### 1.0.0-alpha (20 Nov 2018)
 
