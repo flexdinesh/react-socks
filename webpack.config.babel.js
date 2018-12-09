@@ -12,7 +12,8 @@ export default () => ({
     path: path.join(__dirname, 'dist'),
     filename: '[name].js',
     library: packageJson.name,
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
+    globalObject: 'this'
   },
 
   module: {
@@ -29,16 +30,12 @@ export default () => ({
             }
           }
         ]
-      },
-      {
-        test: /\.(scss)$/,
-        loader: 'style-loader!css-loader!sass-loader'
       }
     ]
   },
 
   resolve: {
-    extensions: ['.js', '.jsx', '.scss']
+    extensions: ['.js', '.jsx']
   },
 
   externals: {

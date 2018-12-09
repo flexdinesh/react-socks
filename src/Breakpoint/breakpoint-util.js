@@ -1,3 +1,5 @@
+import { isBrowser } from 'browser-or-node';
+
 export class BreakpointUtil {
   constructor() {
     const defaultBreakpoints = [
@@ -81,9 +83,7 @@ export class BreakpointUtil {
   }
 
   getWidthSafely() {
-    return window
-      ? Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
-      : 9999;
+    return isBrowser && window ? Math.max(document.documentElement.clientWidth, window.innerWidth || 0) : 9999;
   }
 }
 
@@ -91,26 +91,16 @@ const B = new BreakpointUtil();
 export default B;
 
 export const setDefaultBreakpoints = (customBreakpoints) => {
-  if (
-    !customBreakpoints ||
-    typeof customBreakpoints !== 'object' ||
-    !(customBreakpoints instanceof Array)
-  ) {
-    throw new Error(
-      'setDefaultBreakpoints error: Breakpoints should be an array'
-    );
+  if (!customBreakpoints || typeof customBreakpoints !== 'object' || !(customBreakpoints instanceof Array)) {
+    throw new Error('setDefaultBreakpoints error: Breakpoints should be an array');
   }
 
   customBreakpoints.forEach((obj) => {
     if (!obj || typeof obj !== 'object') {
-      throw new Error(
-        'setDefaultBreakpoints error: Breakpoints should be an array of objects'
-      );
+      throw new Error('setDefaultBreakpoints error: Breakpoints should be an array of objects');
     }
     if (Object.keys(obj).length !== 1) {
-      throw new Error(
-        'setDefaultBreakpoints error: Each breakpoint object should have only one key'
-      );
+      throw new Error('setDefaultBreakpoints error: Each breakpoint object should have only one key');
     }
   });
 
