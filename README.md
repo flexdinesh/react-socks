@@ -35,9 +35,21 @@ $ npm install --save react-socks
 
 ## Usage
 
-```jsx
-import Breakpoint from 'react-socks';
+Just wrap your top level component with `BreakpointProvider` and use the `Breakpoint` anywhere you need.
 
+```jsx
+import Breakpoint, { BreakpointProvider } from 'react-socks';
+
+// entry file (usually App.js or index.js)
+const App = () => (
+  <BreakpointProvider>
+    <Example />
+  </BreakpointProvider>
+);
+```
+
+```jsx
+// Example.js
 const Example = () => {
   return (
     <div>
