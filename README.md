@@ -35,7 +35,9 @@ $ npm install --save react-socks
 
 ## Usage
 
-Just wrap your top level component with `BreakpointProvider` and use the `Breakpoint` anywhere you need.
+Just wrap your top level component with `BreakpointProvider` and use the `Breakpoint` component anywhere you need.
+
+_Note: `BreakpointProvider` was introduced only in `v1.0.0`. It's not available in previous alpha versions._
 
 ```jsx
 import Breakpoint, { BreakpointProvider } from 'react-socks';
