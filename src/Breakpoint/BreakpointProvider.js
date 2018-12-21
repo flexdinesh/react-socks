@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import BreakpointUtil from './breakpoint-util';
+import { debounce }  from '../Utilities';
 
 const BreakpointContext = React.createContext();
 
@@ -15,9 +16,7 @@ export default class BreakpointProvider extends React.Component {
       currentBreakpointName: BreakpointUtil.getBreakpointName(currentWidth)
     };
 
-    this.handleResize = this.handleResize.bind(
-      this
-    );
+    this.handleResize = debounce(this.handleResize.bind(this), 100);
   }
 
   componentDidMount() {
