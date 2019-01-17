@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import BreakpointUtil from './breakpoint-util';
-import { debounce }  from '../Utilities';
+import debounce from 'lodash.debounce';
 
 const BreakpointContext = React.createContext();
 
