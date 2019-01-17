@@ -16,24 +16,30 @@ export default class Breakpoint extends React.Component {
   extractBreakpointAndModifierFromProps(allProps) {
     let breakpoint;
     let modifier;
+    let tagName = allProps.tagName || 'div'
+    let className = allProps.className || ''
+
     Object.keys(allProps).forEach((prop) => {
       if (prop === 'up' || prop === 'down' || prop === 'only') {
         modifier = prop;
-      } else {
+      } else if(prop !== 'tagName' && prop !== 'className') {
         breakpoint = prop;
       }
     });
 
-    if (!modifier) modifier = 'only';
+    if (!modifier)  modifier  = 'only';
+
     return {
       breakpoint,
-      modifier
+      modifier,
+      tagName,
+      className
     };
   }
 
   render() {
     const { children, ...rest } = this.props;
-    const { breakpoint, modifier } = this.extractBreakpointAndModifierFromProps(
+    const { breakpoint, modifier, className, tagName } = this.extractBreakpointAndModifierFromProps(
       rest
     );
     const { currentBreakpointName, currentWidth } = this.context;
@@ -47,8 +53,9 @@ export default class Breakpoint extends React.Component {
 
     if (!shouldRender) return null;
 
+    const Tag = tagName
     return (
-      <div className={`breakpoint__${breakpoint}-${modifier}`}>{children}</div>
+      <Tag className={`breakpoint__${breakpoint}-${modifier} ${className}`}>{children}</Tag>
     );
   }
 }
@@ -60,5 +67,7 @@ Breakpoint.propTypes = {
   up: PropTypes.bool,
   down: PropTypes.bool,
   only: PropTypes.bool,
+  tagName: PropTypes.string,
+  className: PropTypes.string,
 };
 
