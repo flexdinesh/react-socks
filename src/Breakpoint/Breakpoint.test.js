@@ -372,6 +372,39 @@ describe('Breakpoint - large', () => {
     expect(wrapper.children().children()).toHaveLength(1);
   });
 
+  it('should render as a span', () => {
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint large tagName="span">
+          <span>parent should be a span</span>
+        </Breakpoint>
+      </BreakpointProvider>
+    );
+    expect(wrapper.children().children().type()).toEqual('span')
+  })
+
+  it('should render as an a', () => {
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint large tagName="a">
+          <span>parent should be an a</span>
+        </Breakpoint>
+      </BreakpointProvider>
+    );
+    expect(wrapper.children().children().type()).toEqual('a')
+  })
+
+  it('should have className "test"', () => {
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint large className="test">
+          <span>parent should have className test</span>
+        </Breakpoint>
+      </BreakpointProvider>
+    );
+    expect(wrapper.children().children().hasClass('test')).toEqual(true)
+  })
+
   afterEach(() => {
     widthStub.restore();
   });
