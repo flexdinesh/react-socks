@@ -2,7 +2,10 @@ import React from 'react';
 import { shallow  } from 'enzyme';
 import { BreakpointProvider } from 'index';
 import { BreakpointUtil } from './breakpoint-util';
+import debounce from 'lodash.debounce'; // eslint-disable-line
 import sinon from 'sinon';
+
+jest.mock('lodash.debounce', () => jest.fn(fn => fn));
 
 describe('Breakpoint Context Provider', () => {
   it('render without crashing', () => {
