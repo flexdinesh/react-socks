@@ -4,7 +4,10 @@ import PropTypes from 'prop-types';
 import BreakpointUtil from './breakpoint-util';
 import debounce from 'lodash.debounce';
 
-const BreakpointContext = React.createContext();
+const BreakpointContext = React.createContext({
+  currentWidth: 9999,
+  currentBreakpointName: ''
+});
 
 export default class BreakpointProvider extends React.Component {
   constructor(props) {
@@ -59,4 +62,4 @@ BreakpointProvider.propTypes = {
 
 export {
   BreakpointContext,
-}
+};
