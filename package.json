@@ -31,7 +31,7 @@
     "eslint": "^5.8.0",
     "eslint-plugin-react": "^7.4.0",
     "jest-cli": "^23.6.0",
-    "lodash.debounce": "^4.17.11",
+    "lodash.debounce": "^4.0.8",
     "node-sass": "^4.7.2",
     "prop-types": "^15.6.0",
     "react": "^16.6.0",
@@ -64,6 +64,10 @@
     "library",
     "socks"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flexdinesh/react-socks.git"
+  },
   "resolutions": {
     "babel-core": "7.0.0-bridge.0"
   }
