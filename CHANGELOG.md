@@ -8,6 +8,12 @@
 
 ## Released
 
+### 1.0.1 (19 Jan 2019)
+
+* IMPROVE: Debounce resize event as a performance enhancement
+* IMPROVE: Add support for custom `tagName` & `className`
+* FIX: Can be used with multiple contexts without having to wrap the component with BreakpointProvider in test cases
+
 ### 1.0.0 (9 Dec 2018)
 
 * First stable release of **React Socks**.
