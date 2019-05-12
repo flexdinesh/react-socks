@@ -28,6 +28,7 @@ export default class BreakpointProvider extends React.Component {
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.handleResize);
+    this.handleResize.cancel();
   }
 
   handleResize() {
