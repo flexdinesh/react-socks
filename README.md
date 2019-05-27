@@ -159,7 +159,7 @@ You have **three** modifiers
 
 ### Get Current Width / Breakpoint Name
 
-Ff you call `getCurrentWidth` in the render function of a functional component, you can access current width directly:
+If you call `getCurrentWidth` in the render function, you can access the current width directly:
 
 ```jsx
 import { getCurrentWidth } from 'react-socks'
@@ -174,7 +174,7 @@ const CustomComponent = () => {
 }
 ```
 
-You can get current breakpoint name with `getCurrentBreakpointName`:
+You can also get the current breakpoint name with `getCurrentBreakpointName`:
 
 ```jsx
 import { getCurrentBreakpointName } from 'react-socks'
@@ -188,6 +188,8 @@ const CustomComponent = () => {
   }
 }
 ```
+
+These two functions are calling `React.useContext()`, so there are only working in functional components.
 
 ## Contributors
 
