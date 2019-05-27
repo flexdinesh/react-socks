@@ -61,6 +61,10 @@ export const getCurrentWidth = () => {
   return React.useContext(BreakpointContext).currentWidth
 }
 
+export const getCurrentBreakpointName = () => {
+  return React.useContext(BreakpointContext).currentBreakpointName
+}
+
 BreakpointProvider.propTypes = {
   children: PropTypes.node,
 };
