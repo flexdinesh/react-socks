@@ -57,6 +57,10 @@ export default class BreakpointProvider extends React.Component {
   }
 }
 
+export const getCurrentWidth = () => {
+  return React.useContext(BreakpointContext).currentWidth
+}
+
 BreakpointProvider.propTypes = {
   children: PropTypes.node,
 };
