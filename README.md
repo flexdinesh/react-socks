@@ -83,6 +83,7 @@ const Example = () => {
 
 - [setDefaultBreakpoints](#set-default-breakpoints)
 - [Breakpoint](#breakpoint)
+- [getCurrentWidth](#get-current-width)
 
 ### Set Default Breakpoints
 
@@ -155,6 +156,23 @@ You have **three** modifiers
 - **up** - will render the component **in** the specified breakpoint and all the breakpoints **above** it (greater than the width).
 
 - **down** - will render the component **in** the specified breakpoint and all the breakpoints **below** it (less than the width).
+
+### Get Current Width
+
+To access current width directly, call react hook `getCurrentWidth` in the render function of a functional component:
+
+```jsx
+import { getCurrentWidth } from 'react-socks'
+
+const CustomComponent = () => {
+  const width = getCurrentWidth()
+  if (width < 500) {
+    return <h1>Hello!</h1>
+  } else {
+    return <h2>Hello!</h2>
+  }
+}
+```
 
 ## Contributors
 
