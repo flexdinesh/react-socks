@@ -83,7 +83,7 @@ const Example = () => {
 
 - [setDefaultBreakpoints](#set-default-breakpoints)
 - [Breakpoint](#breakpoint)
-- [getCurrentWidth](#get-current-width-current-breakpoint-name) / [getCurrentBreakpointName](#get-current-width-current-breakpoint-name)
+- [getCurrentWidth](#get-current-width--breakpoint-name) / [getCurrentBreakpointName](#get-current-width--breakpoint-name)
 
 ### Set Default Breakpoints
 
@@ -159,7 +159,7 @@ You have **three** modifiers
 
 ### Get Current Width / Breakpoint Name
 
-You can access current width directly, if you call `getCurrentWidth` in the render function of a functional component
+Ff you call `getCurrentWidth` in the render function of a functional component, you can access current width directly:
 
 ```jsx
 import { getCurrentWidth } from 'react-socks'
