@@ -57,11 +57,11 @@ export default class BreakpointProvider extends React.Component {
   }
 }
 
-export const getCurrentWidth = () => {
+export const useCurrentWidth = () => {
   return React.useContext(BreakpointContext).currentWidth
 }
 
-export const getCurrentBreakpointName = () => {
+export const useCurrentBreakpointName = () => {
   return React.useContext(BreakpointContext).currentBreakpointName
 }
 
