@@ -2,6 +2,7 @@
   "name": "react-socks",
   "version": "1.0.1",
   "description": "React library to render components only on specific viewports",
+  "types": "@types/index.d.ts",
   "main": "./dist/index.js",
   "scripts": {
     "build": "webpack --config webpack.config.babel.js",
