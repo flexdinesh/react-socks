@@ -65,6 +65,12 @@
     "library",
     "socks"
   ],
+  "author": "Dinesh Pandiyan <flexdinesh@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/flexdinesh/react-socks/issues"
+  },
+  "homepage": "https://github.com/flexdinesh/react-socks#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/flexdinesh/react-socks.git"
