@@ -4,6 +4,10 @@
 
 ### version (undecided)
 
+* yet to be released feature goes here
+
+### 2.0.0 (30 Jul 2019)
+
 * NEW: Add support for React hooks
 * NEW: Add types for TypeScript
 * IMPROVE: Prevent memory leaks during debounced resize
