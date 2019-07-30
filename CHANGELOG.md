@@ -4,7 +4,9 @@
 
 ### version (undecided)
 
-* what's next
+* NEW: Add support for React hooks
+* NEW: Add types for TypeScript
+* IMPROVE: Prevent memory leaks during debounced resize
 
 ## Released
 
