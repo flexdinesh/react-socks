@@ -4,7 +4,7 @@ export = ReactSocks;
 export as namespace ReactSocks;
 
 declare namespace ReactSocks {
-  interface Props<T extends { [key: string]: boolean }> {
+  interface Props<T = { [key: string]: boolean }> {
     children?: React.ReactNode;
     up?: boolean;
     down?: boolean;
@@ -30,7 +30,7 @@ declare namespace ReactSocks {
   }
 
   export interface DefaultBreakpoint {
-    [key: string]: number;
+    [breakpoint: string]: number;
   }
 
   export function setDefaultBreakpoints(breakpoints: ReactSocks.DefaultBreakpoint[]): void;
