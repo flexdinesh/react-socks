@@ -4,7 +4,7 @@ export = ReactSocks;
 export as namespace ReactSocks;
 
 declare namespace ReactSocks {
-  interface Props<T = { [key: string]: boolean }> {
+  interface Props<T extends { [key: string]: boolean }> {
     children?: React.ReactNode;
     up?: boolean;
     down?: boolean;
