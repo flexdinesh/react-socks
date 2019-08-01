@@ -30,7 +30,7 @@ declare namespace ReactSocks {
   }
 
   export interface DefaultBreakpoint {
-    [key: string]: number
+    [key: string]: number;
   }
 
   export function setDefaultBreakpoints(breakpoints: DefaultBreakpoint[]): void;
