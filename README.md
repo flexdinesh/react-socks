@@ -195,7 +195,7 @@ Thanks goes to these amazing people 🎉
 
 | [<img src="https://avatars3.githubusercontent.com/u/5777880?v=4" width="100px;"/><br /><sub><b>Dinesh Pandiyan</b></sub>](https://github.com/flexdinesh)<br /> | [<img src="https://avatars1.githubusercontent.com/u/3236388?v=4" width="100px;"/><br /><sub><b>Capelo</b></sub>](https://github.com/antoniocapelo)<br /> | [<img src="https://avatars0.githubusercontent.com/u/8450195?v=4" width="100px;"/><br /><sub><b>Adarsh</b></sub>](https://github.com/sadarshannaiynar)<br /> | [<img src="https://avatars1.githubusercontent.com/u/22812131?v=4" width="100px;"/><br /><sub><b>Patryk</b></sub>](https://github.com/PatrykRudzinski)<br /> | [<img src="https://avatars1.githubusercontent.com/u/9076205?v=4" width="100px;"/><br /><sub><b>WRNGFRNK</b></sub>](https://github.com/wrngfrnk)<br /> | [<img src="https://avatars3.githubusercontent.com/u/9896958?&v=4" width="100px;"/><br /><sub><b>Farhad Yasir</b></sub>](https://github.com/nutboltu)<br />
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| [<img src="https://avatars1.githubusercontent.com/u/13507950?v=4" width="100px;"/><br /><sub><b>Entkenntnis</b></sub>](https://github.com/Entkenntnis)<br />
+| [<img src="https://avatars1.githubusercontent.com/u/13507950?v=4" width="100px;"/><br /><sub><b>Entkenntnis</b></sub>](https://github.com/Entkenntnis)<br /> | [<img src="https://avatars1.githubusercontent.com/u/1263310?v=4" width="100px;"/><br /><sub><b>Douglas Moore</b></sub>](https://github.com/dbryantm)<br />
 
 ## License
 
