@@ -6,6 +6,10 @@
 
 * yet to be released feature goes here
 
+### 2.0.2 (6 Aug 2019)
+
+* FIX: TypeScript Breakpoint props type issue
+
 ### 2.0.1 (5 Aug 2019)
 
 * FIX: TypeScript support for dynamic breakpoints and breakpoint hooks
