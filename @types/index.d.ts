@@ -12,6 +12,7 @@ declare namespace ReactSocks {
     only?: boolean;
     tagName?: string;
     className?: string;
+    style?: React.CSSProperties
   }
 
   interface BreakpointProviderProps {

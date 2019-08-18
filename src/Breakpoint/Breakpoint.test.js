@@ -405,6 +405,17 @@ describe('Breakpoint - large', () => {
     expect(wrapper.children().children().hasClass('test')).toEqual(true)
   })
 
+  it('should have stye "display: none"', () => {
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint large style={{ display: 'none' }}>
+          <span>parent should have style display: none</span>
+        </Breakpoint>
+      </BreakpointProvider>
+    );
+    expect(wrapper.children().children().prop('style')).toEqual({ display: 'none' })
+  })
+
   afterEach(() => {
     widthStub.restore();
   });
