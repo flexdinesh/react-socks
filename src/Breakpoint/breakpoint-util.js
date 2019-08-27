@@ -64,7 +64,7 @@ export class BreakpointUtil {
     return nextBreakpointWidth;
   }
 
-  shouldRender({ breakpointName, modifier, currentBreakpointName, currentWidth }) {
+  shouldRender({ breakpointName, modifier, currentBreakpointName, currentWidth, customQuery }) {
     if (modifier === 'only') {
       if (breakpointName === currentBreakpointName) return true;
     } else if (modifier === 'up') {
@@ -73,8 +73,9 @@ export class BreakpointUtil {
     } else if (modifier === 'down') {
       const nextBreakpointWidth = this.getNextBreakpointWidth(breakpointName);
       if (currentWidth < nextBreakpointWidth) return true;
+    } else if (customQuery) {
+      return window.matchMedia(customQuery).matches;
     }
-
     return false;
   }
 

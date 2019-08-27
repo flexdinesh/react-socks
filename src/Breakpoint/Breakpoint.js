@@ -16,34 +16,48 @@ export default class Breakpoint extends React.Component {
   extractBreakpointAndModifierFromProps(allProps) {
     let breakpoint;
     let modifier;
-    let tagName = allProps.tagName || 'div'
-    let className = allProps.className || ''
-    let style = allProps.style
+    let tagName = allProps.tagName || 'div';
+    let className = allProps.className || '';
+    let style = allProps.style;
+    let usesCustomQuery = false;
 
     Object.keys(allProps).forEach((prop) => {
       if (prop === 'up' || prop === 'down' || prop === 'only') {
         modifier = prop;
-      } else if(prop !== 'tagName' && prop !== 'className' && prop !== 'style') {
+      } else if (prop === 'customQuery') {
+        usesCustomQuery = true;
+      } else if (prop !== 'tagName' && prop !== 'className' && prop !== 'style') {
         breakpoint = prop;
-      }
+      } 
     });
 
-    if (!modifier)  modifier  = 'only';
+    if (modifier === 'up' || modifier === 'down' || modifier === 'only') {
+      usesCustomQuery = false;
+    }
+
+    if (!modifier && !usesCustomQuery)  modifier  = 'only';
 
     return {
       breakpoint,
       modifier,
       tagName,
       className,
-      style
+      style,
+      customQuery: usesCustomQuery ? allProps.customQuery : null
     };
   }
 
   render() {
     const { children, ...rest } = this.props;
-    const { breakpoint, modifier, className, tagName, style } = this.extractBreakpointAndModifierFromProps(
-      rest
-    );
+    const { 
+      breakpoint, 
+      modifier, 
+      className, 
+      tagName, 
+      style, 
+      customQuery
+    } = this.extractBreakpointAndModifierFromProps(rest);
+
     const { currentBreakpointName, currentWidth } = this.context;
 
     const shouldRender = BreakpointUtil.shouldRender({
@@ -51,6 +65,7 @@ export default class Breakpoint extends React.Component {
       modifier,
       currentBreakpointName,
       currentWidth,
+      customQuery
     });
 
     if (!shouldRender) return null;
@@ -74,6 +89,6 @@ Breakpoint.propTypes = {
   style: PropTypes.objectOf(PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
-  ]))
+  ])),
+  customQuery: PropTypes.string
 };
-
