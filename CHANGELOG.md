@@ -5,6 +5,7 @@
 ### version (undecided)
 
 * yet to be released feature goes here
+* NEW: Support for custom breakpoints!
 
 ### 2.0.2 (6 Aug 2019)
 

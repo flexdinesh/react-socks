@@ -74,6 +74,26 @@ const Example = () => {
       <Breakpoint large up>
         <div>I will render in laptops, desktops and everything above</div>
       </Breakpoint>
+
+      {/* Add breakpoints on the fly using custom queries */}
+
+      <Breakpoint customQuery="(min-width: 500px)">
+        <div style={{backgroundColor: 'red' }}>
+          Custom breakpoint: (min-width : 500px)
+        </div>
+      </Breakpoint>
+      
+      <Breakpoint customQuery="(max-width: 1000px)">
+        <div style={{backgroundColor: 'yellow' }}>
+          Custom breakpoint: (max-width : 1000px)
+        </div>
+      </Breakpoint>
+      
+      <Breakpoint customQuery="(min-width: 500px) and (max-width: 700px)">
+        <div style={{backgroundColor: 'lightblue' }}>
+          Custom breakpoint: (min-width : 500px) && (max-width : 700px)
+        </div>
+      </Breakpoint>
     </div>
   );
 };
@@ -156,6 +176,39 @@ You have **three** modifiers
 - **up** - will render the component **in** the specified breakpoint and all the breakpoints **above** it (greater than the width).
 
 - **down** - will render the component **in** the specified breakpoint and all the breakpoints **below** it (less than the width).
+
+
+
+### Custom Breakpoints 🆕
+
+Now, you can add a breakpoint of any width by using this prop: `customQuery`.
+Simply write your media query as a _string_ and pass it to `customQuery` 
+
+```jsx
+  <Breakpoint customQuery="(min-width: 500px)">
+    <div style={{backgroundColor: 'red' }}>
+      Custom breakpoint: (min-width : 500px)
+    </div>
+  </Breakpoint>
+  
+  <Breakpoint customQuery="(max-width: 1000px)">
+    <div style={{backgroundColor: 'yellow' }}>
+      Custom breakpoint: (max-width : 1000px)
+    </div>
+  </Breakpoint>
+  
+  <Breakpoint customQuery="(min-width: 500px) and (max-width: 700px)">
+    <div style={{backgroundColor: 'lightblue' }}>
+      Custom breakpoint: (min-width : 500px) && (max-width : 700px)
+    </div>
+  </Breakpoint>
+```
+
+**Note: `customQuery` will be ignored if you have mentioned any modifiers like `up`, `down` & `only`**
+
+Use `customQuery` only if you want to make use of arbitary breakpoints.
+
+
 
 ### Use Current Width / Breakpoint Name
 
