@@ -12,6 +12,7 @@ declare namespace ReactSocks {
     only?: boolean;
     tagName?: string;
     className?: string;
+    customQuery?: string;
     style?: React.CSSProperties
   }
 
