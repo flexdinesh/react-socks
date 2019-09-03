@@ -420,3 +420,193 @@ describe('Breakpoint - large', () => {
     widthStub.restore();
   });
 });
+
+describe('Breakpoint - customQuery: minWidth', () => {
+  let widthStub; // eslint-disable-line
+
+  beforeEach(() => {
+    widthStub = sinon
+      .stub(BreakpointUtil.prototype, 'getWidthSafely')
+      .returns(572);
+  });
+
+  it('should render as currentWidth greater than customMinWidth', () => {
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      configurable: true,
+      value: jest.fn().mockImplementation(query => ({
+        matches: true,   // assume the query matches
+        media: query,
+        onchange: null,
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn(),
+      }))
+    });
+
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint customQuery="(min-width: 300px)">
+          <span> should render as currentWidth is greater than minWidth </span>
+        </Breakpoint>
+      </BreakpointProvider>
+    );
+    expect(wrapper.children().children()).toHaveLength(1);
+  });
+
+  it('should not render as currentWidth lesser than customMinWidth', () => {
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      configurable: true,
+      value: jest.fn().mockImplementation(query => ({
+        matches: false,   // assume the query does not match
+        media: query,
+        onchange: null,
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn(),
+      }))
+    });
+
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint customQuery="(min-width: 600px)">
+          <span> should not render as currentWidth is lesser than minWidth </span>
+        </Breakpoint>
+      </BreakpointProvider>
+    );
+    expect(wrapper.children().children()).toHaveLength(0);
+  });
+
+
+  afterEach(() => {
+    widthStub.restore();
+  });
+});
+
+describe('Breakpoint - customQuery: maxWidth', () => {
+  let widthStub; // eslint-disable-line
+
+  beforeEach(() => {
+    widthStub = sinon
+      .stub(BreakpointUtil.prototype, 'getWidthSafely')
+      .returns(720);
+  });
+
+  it('should render as currentWidth is less than customMaxWidth', () => {
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      configurable: true,
+      value: jest.fn().mockImplementation(query => ({
+        matches: true,   // assume the query matches
+        media: query,
+        onchange: null,
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn(),
+      }))
+    });
+
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint customQuery="(max-width: 1000px)">
+          <span> should render as currentWidth is less than maxWidth </span>
+        </Breakpoint>
+      </BreakpointProvider>
+    );
+    expect(wrapper.children().children()).toHaveLength(1);
+  });
+
+  it('should not render as currentWidth greater than customMaxWidth', () => {
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      configurable: true,
+      value: jest.fn().mockImplementation(query => ({
+        matches: false,   // assume the query does not match
+        media: query,
+        onchange: null,
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn(),
+      }))
+    });
+
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint customQuery="(max-width: 600px)">
+          <span> should not render as currentWidth is greater than maxWidth </span>
+        </Breakpoint>
+      </BreakpointProvider>
+    );
+    expect(wrapper.children().children()).toHaveLength(0);
+  });
+
+
+  afterEach(() => {
+    widthStub.restore();
+  });
+});
+
+describe('Breakpoint - customQuery: minWidth and maxWidth', () => {
+  let widthStub; // eslint-disable-line
+
+  beforeEach(() => {
+    widthStub = sinon
+      .stub(BreakpointUtil.prototype, 'getWidthSafely')
+      .returns(720);
+  });
+
+  it('should render as currentWidth lies between the range', () => {
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      configurable: true,
+      value: jest.fn().mockImplementation(query => ({
+        matches: true,   // assume the query matches
+        media: query,
+        onchange: null,
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn(),
+      }))
+    });
+
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint customQuery="(min-width: 500px) and (max-width: 700px)">
+          <span> should render as currentWidth lies between the range </span>
+        </Breakpoint>
+      </BreakpointProvider>
+    );
+    expect(wrapper.children().children()).toHaveLength(1);
+  });
+
+  it('should not render as currentWidth lies outside the given range', () => {
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      configurable: true,
+      value: jest.fn().mockImplementation(query => ({
+        matches: false,   // assume the query does not match
+        media: query,
+        onchange: null,
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn(),
+      }))
+    });
+
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint customQuery="(min-width: 320px) and (max-width: 640px)">
+          <span> should not render as currentWidth lies outside the given range </span>
+        </Breakpoint>
+      </BreakpointProvider>
+    );
+    expect(wrapper.children().children()).toHaveLength(0);
+  });
+
+
+  afterEach(() => {
+    widthStub.restore();
+  });
+});
+
