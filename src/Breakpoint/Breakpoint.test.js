@@ -610,3 +610,67 @@ describe('Breakpoint - customQuery: minWidth and maxWidth', () => {
   });
 });
 
+describe('Breakpoint - customQuery', () => {
+  let widthStub; // eslint-disable-line
+
+  beforeEach(() => {
+    widthStub = sinon
+      .stub(BreakpointUtil.prototype, 'getWidthSafely')
+      .returns(480);
+  });
+
+  it('should not render as customQuery is ignored when other modifiers are specified', () => {
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      configurable: true,
+      value: jest.fn().mockImplementation(query => ({
+        matches: true,   // assume the query matches
+        media: query,
+        onchange: null,
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn(),
+      }))
+    });
+
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint large up customQuery="(max-width: 600px)">
+          <span> Since currentWidth is a small-screen, this will not render! </span>
+          <span> customQuery is ignored! </span>
+        </Breakpoint>
+      </BreakpointProvider>
+    );
+    expect(wrapper.children().children()).toHaveLength(0);
+  });
+
+  it('should render though customQuery is ignored because other modifiers are specified', () => {
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      configurable: true,
+      value: jest.fn().mockImplementation(query => ({
+        matches: true,   // assume the query does not match
+        media: query,
+        onchange: null,
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn(),
+      }))
+    });
+
+    let wrapper = mount(
+      <BreakpointProvider>
+        <Breakpoint small down customQuery="(min-width: 720px)">
+          <span> should render though customQuery is ignored because other modifiers are specified </span>
+        </Breakpoint>
+      </BreakpointProvider>
+    );
+    expect(wrapper.children().children()).toHaveLength(1);
+  });
+
+
+  afterEach(() => {
+    widthStub.restore();
+  });
+});
+
