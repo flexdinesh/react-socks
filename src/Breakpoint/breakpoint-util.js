@@ -74,7 +74,7 @@ export class BreakpointUtil {
       const nextBreakpointWidth = this.getNextBreakpointWidth(breakpointName);
       if (currentWidth < nextBreakpointWidth) return true;
     } else if (customQuery) {
-      return window.matchMedia(customQuery).matches;
+      return isBrowser && window.matchMedia(customQuery).matches;
     }
     return false;
   }
