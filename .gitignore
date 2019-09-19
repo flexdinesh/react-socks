@@ -11,3 +11,5 @@ package-lock.json
 # others
 .DS_Store
 yarn-error.log
+
+.vscode
