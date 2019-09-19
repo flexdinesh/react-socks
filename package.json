@@ -1,6 +1,6 @@
 {
   "name": "react-socks",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "React library to render components only on specific viewports",
   "types": "@types/index.d.ts",
   "main": "./dist/index.js",
