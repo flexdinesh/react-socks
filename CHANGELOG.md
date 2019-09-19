@@ -6,7 +6,7 @@
 
 * yet to be released feature goes here
 
-### 2.1.0 (13* Sep 2019) - Haven't released yet
+### 2.1.0 (19 Sep 2019)
 
 * NEW: Support for custom breakpoints
 
