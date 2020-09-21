@@ -1,6 +1,13 @@
 import { Breakpoint, BreakpointProvider } from './Breakpoint';
-import { setDefaultBreakpoints } from './Breakpoint/breakpoint-util';
+import { setDefaultBreakpoints, setDefaultWidth } from './Breakpoint/breakpoint-util';
 import { useCurrentWidth, useCurrentBreakpointName } from './Breakpoint/BreakpointProvider';
 
 export default Breakpoint;
-export { Breakpoint, BreakpointProvider, setDefaultBreakpoints, useCurrentWidth, useCurrentBreakpointName };
+export { 
+  Breakpoint, 
+  BreakpointProvider, 
+  setDefaultBreakpoints, 
+  setDefaultWidth,
+  useCurrentWidth, 
+  useCurrentBreakpointName 
+};
