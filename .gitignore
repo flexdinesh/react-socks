@@ -1,5 +1,4 @@
 node_modules
-dist/*.js
 examples/dist/*.js
 coverage
 
