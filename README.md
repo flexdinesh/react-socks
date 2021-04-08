@@ -102,6 +102,7 @@ const Example = () => {
 ## API
 
 - [setDefaultBreakpoints](#set-default-breakpoints)
+- [setDefaultWidth](#set-default-width)
 - [Breakpoint](#breakpoint)
 - [useCurrentWidth](#use-current-width--breakpoint-name) / [useCurrentBreakpointName](#use-current-width--breakpoint-name)
 
@@ -153,6 +154,21 @@ setDefaultBreakpoints([
   { large: 992 }, // smaller laptops
   { xlarge: 1200 } // laptops and desktops
 ]);
+```
+
+### Set Default Width
+
+You can define your own default width. This will help when you want to render a particular default width from the server. Usually in the server, there are no breakpoints and the lib defaults to 0 and renders mobile views. Use this API to change that.
+
+- Pass **width** in _px_ to `setDefaultWidth` **once** in your `App.js` or your React entry file.
+
+**Note: You only need to set default width once in your app**
+
+```jsx
+import { setDefaultWidth } from 'react-socks';
+
+setDefaultWidth(992); // render desktop components in the server
+
 ```
 
 ### Breakpoint
