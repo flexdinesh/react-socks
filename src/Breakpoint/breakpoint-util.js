@@ -1,5 +1,7 @@
 import { isBrowser } from 'browser-or-node';
 
+let DEFAULT_WIDTH = 9999;
+
 export class BreakpointUtil {
   constructor() {
     const defaultBreakpoints = [
@@ -84,7 +86,7 @@ export class BreakpointUtil {
   }
 
   getWidthSafely() {
-    return isBrowser && window ? Math.max(document.documentElement.clientWidth, window.innerWidth || 0) : 9999;
+    return isBrowser && window ? Math.max(document.documentElement.clientWidth, window.innerWidth || 0) : DEFAULT_WIDTH;
   }
 }
 
@@ -106,4 +108,8 @@ export const setDefaultBreakpoints = (customBreakpoints) => {
   });
 
   B.breakpoints = customBreakpoints;
+};
+
+export const setDefaultWidth = (defaultWidth) => {
+  return DEFAULT_WIDTH = defaultWidth;
 };
