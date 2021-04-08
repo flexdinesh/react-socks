@@ -2,9 +2,9 @@
 
 ## To Be Released
 
-### version (undecided)
+### 2.2.0
 
-* yet to be released feature goes here
+* Adds a function for setting the default width
 
 ### 2.1.0 (19 Sep 2019)
 
