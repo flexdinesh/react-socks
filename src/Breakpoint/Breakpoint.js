@@ -71,8 +71,9 @@ export default class Breakpoint extends React.Component {
     if (!shouldRender) return null;
 
     const Tag = tagName
+    const breakpointName = breakpoint ? `${breakpoint}-${modifier}` : "custom";
     return (
-      <Tag className={`breakpoint__${breakpoint}-${modifier} ${className}`} style={style}>{children}</Tag>
+      <Tag className={`breakpoint__${breakpointName} ${className}`} style={style}>{children}</Tag>
     );
   }
 }
